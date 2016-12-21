@@ -1,0 +1,21 @@
+<html>
+<body>
+<template id="movie-tpl">
+<style>
+h1 { color: red }
+</style>
+<h1>Superman</h1>
+</template>
+<script>
+var MovieCmpProto = Object.create(HTMLElement.prototype);
+// add some template using the template tag
+MovieCmpProto.createdCallback = function () {
+var template = document.querySelector('#movie-tpl');
+var clone = document.importNode(template.content, true);
+this.createShadowRoot().appendChild(clone);
+}
+document.registerElement('movie-cmp', { prototype: MovieCmpProto });
+</script>
+<movie-cmp></movie-cmp>
+</body>
+</html>
