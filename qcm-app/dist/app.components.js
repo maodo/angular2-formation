@@ -9,67 +9,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var qcmService_1 = require('./services/qcmService');
 var QcmAppComponent = (function () {
-    function QcmAppComponent() {
+    function QcmAppComponent(_qcmService) {
+        this._qcmService = _qcmService;
         this.list = true;
-        this.qcms = [
-            {
-                title: 'Javascipt',
-                questionsList: [
-                    {
-                        title: 'question 1',
-                        answerList: [
-                            { title: 'réponse 1 : réponse 1' },
-                            { title: 'question 2 : réponse 2' },
-                            { title: 'question 3 : réponse 3' }
-                        ]
-                    },
-                    {
-                        title: 'question 2',
-                        answerList: [
-                            { title: 'réponse 1 : réponse 1' },
-                            { title: 'question 2 : réponse 2' },
-                            { title: 'question 3 : réponse 3' }
-                        ]
-                    },
-                    {
-                        title: 'question 3',
-                        answerList: [
-                            { title: 'réponse 1 : réponse 1' },
-                            { title: 'question 2 : réponse 2' },
-                            { title: 'question 3 : réponse 3' }
-                        ]
-                    }
-                ]
-            },
-            {
-                title: 'HTML5',
-                questionsList: [
-                    {
-                        title: 'question 1',
-                        answerList: [
-                            { title: 'réponse 1 : réponse 1' },
-                            { title: 'question 2 : réponse 2' },
-                            { title: 'question 3 : réponse 3' }
-                        ]
-                    }
-                ]
-            },
-            {
-                title: 'Angular',
-                questionsList: [
-                    {
-                        title: 'question 1',
-                        answerList: [
-                            { title: 'réponse 1 : réponse 1' },
-                            { title: 'question 2 : réponse 2' },
-                            { title: 'question 3 : réponse 3' }
-                        ]
-                    }
-                ]
-            }
-        ];
     }
+    QcmAppComponent.prototype.ngOnInit = function () {
+        this.qcms = this._qcmService.getQcm();
+    };
     QcmAppComponent.prototype.editionMode = function () {
         this.edition = true;
         this.list = false;
@@ -83,7 +31,7 @@ var QcmAppComponent = (function () {
             selector: 'qcm-app',
             template: "\n        <button (click)=\"editionMode()\" *ngIf=\"list\">Mode edit</button>\n        \n        <button (click)=\"listMode()\" *ngIf=\"edition\">Mode list</button>\n        \n        <h1>hello</h1>\n        \n        <qcm-list *ngIf=\"list\" [qcms]='qcms'></qcm-list>\n        <qcm-edition *ngIf=\"edition\" [qcms]='qcms'></qcm-edition>\n    "
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [qcmService_1.qcmService])
     ], QcmAppComponent);
     return QcmAppComponent;
 }());

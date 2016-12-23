@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { qcmService } from './services/qcmService';
 
 @Component({
     selector: 'qcm-app',
@@ -15,65 +16,15 @@ import { Component } from '@angular/core';
 })
 export class QcmAppComponent {
 
+    constructor(private _qcmService: qcmService) {
+
+    }
+
     list = true;
 
-    qcms: Array<Qcm> = [
-        {
-            title: 'Javascipt',
-            questionsList:  [
-                {
-                    title: 'question 1',
-                    answerList:  [
-                        { title: 'réponse 1 : réponse 1' },
-                        { title: 'question 2 : réponse 2' },
-                        { title: 'question 3 : réponse 3' }
-                    ]
-                },
-                {
-                    title: 'question 2',
-                    answerList:  [
-                        { title: 'réponse 1 : réponse 1' },
-                        { title: 'question 2 : réponse 2' },
-                        { title: 'question 3 : réponse 3' }
-                    ]
-                },
-                {
-                    title: 'question 3',
-                    answerList:  [
-                        { title: 'réponse 1 : réponse 1' },
-                        { title: 'question 2 : réponse 2' },
-                        { title: 'question 3 : réponse 3' }
-                    ]
-                }
-            ]
-        },
-        {
-            title: 'HTML5',
-            questionsList:  [
-                {
-                    title: 'question 1',
-                    answerList:  [
-                        { title: 'réponse 1 : réponse 1' },
-                        { title: 'question 2 : réponse 2' },
-                        { title: 'question 3 : réponse 3' }
-                    ]
-                }
-            ]
-        },
-        {
-            title: 'Angular',
-            questionsList:  [
-                {
-                    title: 'question 1',
-                    answerList:  [
-                        { title: 'réponse 1 : réponse 1' },
-                        { title: 'question 2 : réponse 2' },
-                        { title: 'question 3 : réponse 3' }
-                    ]
-                }
-            ]
-        }
-    ];
+    ngOnInit() {
+        this.qcms = this._qcmService.getQcm();
+    }
 
     editionMode() {
         this.edition = true;

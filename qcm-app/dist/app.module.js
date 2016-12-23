@@ -13,6 +13,7 @@ var platform_browser_1 = require("@angular/platform-browser");
 var app_components_1 = require("./app.components");
 var qcm_components_1 = require("./qcm.components");
 var qcmEdition_components_1 = require("./qcmEdition.components");
+var qcmService_1 = require("./services/qcmService");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -20,6 +21,7 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule],
             declarations: [app_components_1.QcmAppComponent, qcm_components_1.QcmComponent, qcmEdition_components_1.QcmEditionComponent],
+            providers: [qcmService_1.qcmService],
             bootstrap: [app_components_1.QcmAppComponent]
         }), 
         __metadata('design:paramtypes', [])
