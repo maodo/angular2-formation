@@ -3,5 +3,6 @@
   <component name="JavaScriptLibraryMappings">
     <file url="file://$PROJECT_DIR$" libraries="{formation-angular/node_modules}" />
     <file url="file://$PROJECT_DIR$/movie-app" libraries="{formation-angular/movie-app/node_modules}" />
+    <file url="file://$PROJECT_DIR$/qcm-app" libraries="{formation-angular/qcm-app/node_modules}" />
   </component>
 </project>

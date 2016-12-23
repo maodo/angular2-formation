@@ -1,0 +1,7 @@
+{
+  "name": "qcm-app",
+  "dependencies": {},
+  "globalDependencies": {
+    "core-js": "registry:dt/core-js#0.9.7+20161130133742"
+  }
+}
